@@ -200,7 +200,7 @@
   }
 
   .cart__price-old-value {
-        font-size: 13px;
+    font-size: 13px;
     line-height: 16px;
     width: max-content;
   }
@@ -490,26 +490,22 @@
 
   .home-icon:hover,
   .home-icon:active {
-    filter: invert(22%) sepia(87%) saturate(5670%) hue-rotate(299deg)
-      brightness(87%) contrast(101%);
+    filter: invert(22%) sepia(87%) saturate(5670%) hue-rotate(299deg) brightness(87%) contrast(101%);
   }
 
   .profile-icon:hover,
   .profile-icon:active {
-    filter: invert(22%) sepia(87%) saturate(5670%) hue-rotate(299deg)
-      brightness(87%) contrast(101%);
+    filter: invert(22%) sepia(87%) saturate(5670%) hue-rotate(299deg) brightness(87%) contrast(101%);
   }
 
   .cart-icon:hover,
   .cart-icon:active {
-    filter: invert(22%) sepia(87%) saturate(5670%) hue-rotate(299deg)
-      brightness(87%) contrast(101%);
+    filter: invert(22%) sepia(87%) saturate(5670%) hue-rotate(299deg) brightness(87%) contrast(101%);
   }
 
   .favorites-icon:hover,
   .favorites-icon:active {
-    filter: invert(22%) sepia(87%) saturate(5670%) hue-rotate(299deg)
-      brightness(87%) contrast(101%);
+    filter: invert(22%) sepia(87%) saturate(5670%) hue-rotate(299deg) brightness(87%) contrast(101%);
   }
 
   .modal {
@@ -523,6 +519,10 @@
     border-radius: 0;
   }
 
+  .modal.modal-payments {
+    width: 320px;
+  }
+
   .modal-address-info {
     width: 236px;
   }
@@ -533,7 +533,7 @@
 
   .modal-save {
     position: absolute;
-    width: 288px;
+    min-width: 288px;
     margin-top: auto;
     bottom: 16px;
   }

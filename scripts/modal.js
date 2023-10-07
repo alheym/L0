@@ -197,7 +197,7 @@ export function handlerDeliveryModal() {
 
       const pickupAddresses = document.getElementById("modal-addresses-pickup");
       const courierAddresses = document.getElementById(
-        "modal-addresses-courier",
+        "modal-addresses-courier"
       );
 
       // показываем/скрываем соответствующий список адресов
@@ -266,9 +266,9 @@ export function handlerPaymentModal() {
           </div>
         </div>
       </div>
-      <button class="modal-save">Выбрать</button>
     </div>
   </div>
+  <button class="modal-save">Выбрать</button>
 </div>
     `;
 
