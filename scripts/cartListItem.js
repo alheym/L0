@@ -13,15 +13,29 @@ export function createCartItemElement(item, inStock = true) {
     itemDetail += `<div class="cart__item-color">Цвет: ${item.details.color}</div>`;
   }
 
-  console.log(window.innerWidth);
-  // Проверка ширины экрана для отображения элемента с или без текста "Размер"
-  if (item.details.size && window.innerWidth < 768) {
-    itemDetail += `<div class="cart__item-size">${item.details.size}</div>`;
-  } else {
-    if (item.details.size) {
-      itemDetail += `<div class="cart__item-size">Размер: ${item.details.size}</div>`;
+  function updateSizeDisplay(item, itemDetail) {
+    itemDetail = "";
+
+    // Проверка ширины экрана для отображения элемента с или без текста "Размер"
+    if (item.details.size && window.innerWidth < 640) {
+      itemDetail += `<div class="cart__item-size">${item.details.size}</div>`;
+    } else {
+      if (item.details.size) {
+        itemDetail += `<div class="cart__item-size">Размер: ${item.details.size}</div>`;
+      }
     }
+    return itemDetail;
   }
+
+  itemDetail = updateSizeDisplay(item, itemDetail);
+
+  // Обновить отображение размера при изменении размера окна
+  window.addEventListener("resize", () => {
+    itemDetail = updateSizeDisplay(item, itemDetail);
+
+    const cartItemDetail = cartItem.querySelector(".cart__item-detail");
+    cartItemDetail.innerHTML = itemDetail;
+  });
 
   let itemRemains = "";
 
@@ -73,8 +87,8 @@ export function createCartItemElement(item, inStock = true) {
           : ""
       }
         <img src="${item.imgSrc}" alt="" class="cart__main-img ${
-    inStock ? "" : "outStock"
-  }" />
+          inStock ? "" : "outStock"
+        }" />
         <div class="cart__item-info ${priceClass} ${inStock ? "" : "outStock"}">
           <p class="cart__item-title ${
             inStock ? "" : "outStock"
@@ -99,9 +113,7 @@ export function createCartItemElement(item, inStock = true) {
           }
         </div>
       </div>
-      <div class="cart__meta ${
-        inStock ? "" : "outStock"
-      }">
+      <div class="cart__meta ${inStock ? "" : "outStock"}">
         <div class="cart__meta-controls">
         ${
           inStock

@@ -41,7 +41,7 @@ for (const item of state.products) {
 
 // обработчики для кнопок
 const deliveryChangeButtons = document.querySelectorAll(
-  ".delivery-address-change"
+  ".delivery-address-change",
 );
 const paymentChangeButtons = document.querySelectorAll(".payment-change");
 
