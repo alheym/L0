@@ -1,0 +1,35 @@
+.payment {
+  padding-bottom: 28px;
+}
+
+.payment__content {
+  display: flex;
+  margin-top: 16px;
+}
+
+.payment__content-img {
+  display: flex;
+  width: 32px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 9px;
+  border-radius: 4px;
+  background: var(--bg-smoky);
+}
+
+.payment__content-img img {
+  width: 30px;
+  height: 9.333px;
+}
+
+.payment__content span {
+  margin-left: 8px;
+}
+
+.payment__descr {
+  margin-top: 6px;
+  color: var(--text-descr);
+  font-size: 13px;
+  line-height: 16px;
+}

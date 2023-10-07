@@ -1,0 +1,100 @@
+.delivery {
+  gap: 17px;
+}
+
+.delivery__address {
+  display: flex;
+}
+
+.delivery__title {
+  width: 177px;
+  font-weight: 600;
+}
+
+.delivery__content {
+  margin-left: 7px;
+}
+
+.delivery__address-content-title {
+  margin-bottom: 2px;
+}
+
+.delivery__address-content-time {
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.delivery__address-content-time span {
+  margin-left: 1px;
+  margin-right: 4px;
+}
+
+.delivery__price {
+  display: flex;
+}
+
+.delivery__interval {
+  display: flex;
+}
+
+.delivery__content-img {
+  display: flex;
+}
+
+.delivery__content-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.count-marker {
+  position: absolute;
+  z-index: 3;
+  right: -4.083px;
+  top: -7.998px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 16px;
+  min-width: 16px;
+  padding: 0px 4px;
+  border-radius: 16px;
+  background: var(--notification);
+  color: var(--text-header);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.delivery__content-img img {
+  width: 40px;
+  height: 56px;
+  border-radius: 8px;
+  margin-left: 8px;
+  margin-top: -3px;
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 100%),
+    url(<path-to-image>),
+    lightgray 50% / cover no-repeat,
+    lightgray -0.855px -1.048px / 104.072% 103.363% no-repeat;
+}
+
+.delivery__descr {
+  position: relative;
+  display: flex;
+  margin-top: 13px;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 16px;
+  margin-bottom: 12px;
+}
+
+.delivery__descr span {
+  color: var(--free);
+  border-bottom: 1px dashed rgba(12, 180, 119, 0.2);
+}
+
+.delivery__descr img {
+  margin-top: -2px;
+}

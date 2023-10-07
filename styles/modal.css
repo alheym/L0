@@ -1,0 +1,199 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 0, 10, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.modal-payments {
+  width: 400px;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  padding: 16px 22px 24px 22px;
+  background: var(--bg-white);
+  border-radius: 16px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 13px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.2px;
+}
+
+.modal-close-button {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  background-image: url("../assets/icons/close.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modal-variants {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.modal-variants button {
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  height: 36px;
+  width: 100%;
+  border-radius: 20px;
+  border: 2px solid rgba(203, 17, 171, 0.15);
+  background: transparent;
+}
+
+.modal-variants button:active {
+  border-radius: 24px;
+  border: 2px solid var(--button);
+}
+
+.pickup-point.active {
+  border-radius: 24px;
+  border: 2px solid var(--button);
+}
+
+.courier.active {
+  border-radius: 24px;
+  border: 2px solid var(--button);
+}
+
+.modal-addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 16px;
+  margin-bottom: 33px;
+}
+
+.modal-addresses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-addresses-list-item {
+  display: flex;
+}
+
+.modal-address-info {
+  width: 400px;
+}
+
+.modal-address {
+  display: flex;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.modal-rating {
+  display: flex;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--text-descr);
+}
+
+.modal-rating span {
+  color: #000;
+}
+
+.delete-address-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.delete-address-button:hover,
+.delete-address-button:active {
+  filter: invert(37%) sepia(34%) saturate(3405%) hue-rotate(348deg)
+    brightness(99%) contrast(95%);
+}
+
+.delivery-radio {
+  margin-top: 6px;
+}
+
+.modal-save {
+  cursor: pointer;
+  height: 44px;
+  width: 164px;
+  border: none;
+  padding: 0px 48px;
+  border-radius: 8px;
+  background: var(--button);
+  color: var(--bg-white);
+  font-weight: 700;
+  line-height: 24px;
+}
+
+#modal-addresses-courier {
+  display: none;
+}
+
+.modal-payments {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-payments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 139px;
+}
+
+.modal-payment {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-payment-info {
+  display: flex;
+  gap: 4px;
+}
+
+.modal-payment-info img {
+  border-radius: 4px;
+  background: var(--bg-smoky);
+}
+
+.payment-radio {
+  margin-top: 3px;
+}

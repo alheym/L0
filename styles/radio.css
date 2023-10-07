@@ -1,0 +1,45 @@
+input[type="radio"] {
+  position: relative;
+  cursor: pointer;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+}
+
+input[type="radio"]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  border: 1px solid var(--border);
+  border-radius: 100%;
+}
+
+input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  border: 1px solid var(--button);
+  background-color: var(--button);
+  border-radius: 100%;
+}
+
+input[type="radio"]:checked::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  top: 50%;
+  left: 9px;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg-white);
+  border-radius: 100%;
+}
