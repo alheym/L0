@@ -7,9 +7,11 @@ export function productCheckboxes() {
   const selectAllCheckbox = document.getElementById('selectAllCheckbox')
   const itemCheckboxes = document.querySelectorAll('.itemCheckbox')
   const totalPriceElement = document.getElementById('totalPrice')
+  const submitButton = document.querySelector('.info__submit-button')
   const totalDiscountCart = document.getElementById('totalDiscount')
   const totalPriceOldElement = document.getElementById('totalPriceOld')
   const totalCount = document.getElementById('totalCount')
+  const checkbox = document.getElementById('paymentCheckbox')
 
   updateTotalPrice = function () {
     let totalPrice = 0
@@ -57,6 +59,13 @@ export function productCheckboxes() {
     totalPriceElement.textContent = `${totalPrice
       .toFixed(0)
       .replace(/\d(?=(\d{3})+$)/g, '$& ')}`
+
+    if (checkbox.checked) {
+      const price = `${totalPrice
+        .toFixed(0)
+        .replace(/\d(?=(\d{3})+$)/g, '$& ')}`
+      submitButton.textContent = `Оплатить ${price} сом`
+    }
 
     if (totalDiscount > 0) {
       totalDiscountCart.textContent = `−${totalDiscount

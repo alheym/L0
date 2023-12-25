@@ -1,13 +1,15 @@
 import { getItemsCountText } from './utils/utils.js'
 
 export function updateButtonText() {
+  const totatPrice = document.getElementById('totalPrice')
   const checkbox = document.getElementById('paymentCheckbox')
   const paymentText = document.getElementById('paymentText')
   const submitButton = document.querySelector('.info__submit-button')
 
   checkbox.addEventListener('change', function () {
     if (checkbox.checked) {
-      submitButton.textContent = 'Оплатить 2 101 063 сом'
+      const price = totatPrice.textContent
+      submitButton.textContent = `Оплатить ${price} сом`
       paymentText.style.display = 'none'
     } else {
       submitButton.textContent = 'Заказать'
