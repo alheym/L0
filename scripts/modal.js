@@ -1,8 +1,8 @@
 export function handlerDeliveryModal() {
-  const overlay = document.createElement("div");
-  overlay.className = "overlay";
-  const modalElement = document.createElement("div");
-  modalElement.className = "modal";
+  const overlay = document.createElement('div')
+  overlay.className = 'overlay'
+  const modalElement = document.createElement('div')
+  modalElement.className = 'modal'
 
   // созднание контента модального окна
   modalElement.innerHTML = `
@@ -163,62 +163,62 @@ export function handlerDeliveryModal() {
   </div>
   <button class="modal-save">Выбрать</button>
 </div>
-  `;
+  `
 
   // добавляем модальное окно на страницу
-  overlay.appendChild(modalElement);
-  document.body.appendChild(overlay);
+  overlay.appendChild(modalElement)
+  document.body.appendChild(overlay)
 
   // обработчик для кнопки закрытия
-  const closeButton = document.getElementById("close-modal");
+  const closeButton = document.getElementById('close-modal')
   if (closeButton) {
-    closeButton.addEventListener("click", () => {
-      document.body.removeChild(overlay);
-    });
+    closeButton.addEventListener('click', () => {
+      document.body.removeChild(overlay)
+    })
   }
 
-  const deleteButtons = document.querySelectorAll(".delete-address-button");
+  const deleteButtons = document.querySelectorAll('.delete-address-button')
 
   deleteButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const listItem = button.closest(".modal-addresses-list-item");
+    button.addEventListener('click', () => {
+      const listItem = button.closest('.modal-addresses-list-item')
 
       if (listItem) {
-        listItem.remove();
+        listItem.remove()
       }
-    });
-  });
+    })
+  })
 
-  const variantButtons = document.querySelectorAll(".modal-variants button");
+  const variantButtons = document.querySelectorAll('.modal-variants button')
   variantButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      variantButtons.forEach((btn) => btn.classList.remove("active"));
-      button.classList.add("active");
+    button.addEventListener('click', () => {
+      variantButtons.forEach((btn) => btn.classList.remove('active'))
+      button.classList.add('active')
 
-      const pickupAddresses = document.getElementById("modal-addresses-pickup");
+      const pickupAddresses = document.getElementById('modal-addresses-pickup')
       const courierAddresses = document.getElementById(
-        "modal-addresses-courier"
-      );
+        'modal-addresses-courier'
+      )
 
       // показываем/скрываем соответствующий список адресов
-      if (button.classList.contains("pickup-point")) {
-        pickupAddresses.style.display = "flex";
-        courierAddresses.style.display = "none";
-      } else if (button.classList.contains("courier")) {
-        pickupAddresses.style.display = "none";
-        courierAddresses.style.display = "flex";
+      if (button.classList.contains('pickup-point')) {
+        pickupAddresses.style.display = 'flex'
+        courierAddresses.style.display = 'none'
+      } else if (button.classList.contains('courier')) {
+        pickupAddresses.style.display = 'none'
+        courierAddresses.style.display = 'flex'
       }
-    });
-  });
+    })
+  })
 }
 
 export function handlerPaymentModal() {
-  const overlay = document.createElement("div");
-  overlay.className = "overlay";
+  const overlay = document.createElement('div')
+  overlay.className = 'overlay'
 
-  const modalElement = document.createElement("div");
-  modalElement.className = "modal";
-  modalElement.classList.add("modal-payments");
+  const modalElement = document.createElement('div')
+  modalElement.className = 'modal'
+  modalElement.classList.add('modal-payments')
 
   modalElement.innerHTML = `
   <div class="modal-content">
@@ -268,17 +268,17 @@ export function handlerPaymentModal() {
       </div>
     </div>
   </div>
-  <button class="modal-save">Выбрать</button>
+  <button class="modal-save">Выбрать</button> 
 </div>
-    `;
+    `
 
-  overlay.appendChild(modalElement);
-  document.body.appendChild(overlay);
+  overlay.appendChild(modalElement)
+  document.body.appendChild(overlay)
 
-  const closeButton = document.getElementById("close-modal");
+  const closeButton = document.getElementById('close-modal')
   if (closeButton) {
-    closeButton.addEventListener("click", () => {
-      document.body.removeChild(overlay);
-    });
+    closeButton.addEventListener('click', () => {
+      document.body.removeChild(overlay)
+    })
   }
 }

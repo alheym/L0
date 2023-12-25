@@ -1,87 +1,87 @@
 export function inputValidator() {
-  const nameInput = document.getElementById("name");
-  const surnameInput = document.getElementById("surname");
-  const emailInput = document.getElementById("email");
-  const telInput = document.getElementById("tel");
-  const innInput = document.getElementById("inn");
+  const nameInput = document.getElementById('name')
+  const surnameInput = document.getElementById('surname')
+  const emailInput = document.getElementById('email')
+  const telInput = document.getElementById('tel')
+  const innInput = document.getElementById('inn')
 
   // обработчик инпутов
   const handleInput = (inputElement, validationFunction, errorMessage) => {
-    let labelElement = inputElement.previousElementSibling;
-    let originalPlaceholder = inputElement.placeholder;
+    let labelElement = inputElement.previousElementSibling
+    let originalPlaceholder = inputElement.placeholder
 
     // обработчик фокуса на инпуте
-    inputElement.addEventListener("focus", () => {
-      labelElement.classList.add("focused");
-      labelElement.textContent = originalPlaceholder;
-      inputElement.placeholder = "";
-    });
+    inputElement.addEventListener('focus', () => {
+      labelElement.classList.add('focused')
+      labelElement.textContent = originalPlaceholder
+      inputElement.placeholder = ''
+    })
 
     // обработчик потери фокуса инпутом
-    inputElement.addEventListener("blur", () => {
-      labelElement.classList.remove("focused");
+    inputElement.addEventListener('blur', () => {
+      labelElement.classList.remove('focused')
 
-      const inputValue = inputElement.value.trim();
+      const inputValue = inputElement.value.trim()
       if (!validationFunction(inputValue)) {
-        showError(inputElement, errorMessage);
+        showError(inputElement, errorMessage)
       } else {
-        hideError(inputElement);
+        hideError(inputElement)
       }
 
-      if (inputElement.value === "") {
-        inputElement.placeholder = originalPlaceholder;
-        labelElement.textContent = "";
+      if (inputElement.value === '') {
+        inputElement.placeholder = originalPlaceholder
+        labelElement.textContent = ''
       }
-    });
+    })
 
     // обрабатываем только телефонный номер
-    if (inputElement.id === "tel") {
-      inputElement.addEventListener("input", () => {
-        let inputValue = inputElement.value.replace(/\s/g, "");
+    if (inputElement.id === 'tel') {
+      inputElement.addEventListener('input', () => {
+        let inputValue = inputElement.value.replace(/\s/g, '')
 
         // форматируем номер телефона с пробелами
         inputValue = inputValue
-          .replace(/^\+?(\d{1})/, "+$1") // добавляем "+"
-          .replace(/(\d{1})(\d{3})/, "$1 $2") // после первой цифры добавляем пробел
-          .replace(/(\d{3})(\d{3})/, "$1 $2") // после трех цифр добавляем пробел
-          .replace(/(\d{3})(\d{2})(\d{2})$/, "$1 $2 $3"); // разделяем последние две цифры пробелом
+          .replace(/^\+?(\d{1})/, '+$1') // добавляем "+"
+          .replace(/(\d{1})(\d{3})/, '$1 $2') // после первой цифры добавляем пробел
+          .replace(/(\d{3})(\d{3})/, '$1 $2') // после трех цифр добавляем пробел
+          .replace(/(\d{3})(\d{2})(\d{2})$/, '$1 $2 $3') // разделяем последние две цифры пробелом
 
         // обрезаем до 30 символов
-        inputValue = inputValue.slice(0, 30);
+        inputValue = inputValue.slice(0, 30)
 
         // устанавливаем отформатированное значение
-        inputElement.value = inputValue;
-      });
+        inputElement.value = inputValue
+      })
     }
-  };
+  }
 
   // отображение ошибки
   const showError = (inputElement, errorMessage) => {
-    const warningElement = inputElement.nextElementSibling;
-    inputElement.classList.add("invalid");
-    warningElement.textContent = errorMessage;
-  };
+    const warningElement = inputElement.nextElementSibling
+    inputElement.classList.add('invalid')
+    warningElement.textContent = errorMessage
+  }
 
   // окрытие ошибки
   const hideError = (inputElement) => {
-    const warningElement = inputElement.nextElementSibling;
-    inputElement.classList.remove("invalid");
-    warningElement.textContent = "";
-  };
+    const warningElement = inputElement.nextElementSibling
+    inputElement.classList.remove('invalid')
+    warningElement.textContent = ''
+  }
 
   // проверка кириллицы
-  const isCyrillic = (value) => /^[а-яА-Я]+$/.test(value);
+  const isCyrillic = (value) => /^[а-яА-Я]+$/.test(value)
   // проверка номера телефона: +9 999 999 99 99
   const isPhoneNumberValid = (value) =>
-    /^\+\d{1}\s\d{3}\s\d{3}\s\d{2}\s\d{2}$/.test(value);
+    /^\+\d{1}\s\d{3}\s\d{3}\s\d{2}\s\d{2}$/.test(value)
 
-  handleInput(nameInput, isCyrillic, "Укажите имя");
-  handleInput(surnameInput, isCyrillic, "Введите фамилию");
+  handleInput(nameInput, isCyrillic, 'Укажите имя')
+  handleInput(surnameInput, isCyrillic, 'Введите фамилию')
   handleInput(
     emailInput,
     (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
-    "Проверьте адрес электронной почты",
-  );
-  handleInput(telInput, isPhoneNumberValid, "Формат: +9 999 999 99 99");
-  handleInput(innInput, (value) => /^\d{14}$/.test(value), "Проверьте ИНН");
+    'Проверьте адрес электронной почты'
+  )
+  handleInput(telInput, isPhoneNumberValid, 'Формат: +9 999 999 99 99')
+  handleInput(innInput, (value) => /^\d{14}$/.test(value), 'Проверьте ИНН')
 }

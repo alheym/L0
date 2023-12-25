@@ -144,8 +144,7 @@
 
 .delete-address-button:hover,
 .delete-address-button:active {
-  filter: invert(37%) sepia(34%) saturate(3405%) hue-rotate(348deg)
-    brightness(99%) contrast(95%);
+  filter: invert(37%) sepia(34%) saturate(3405%) hue-rotate(348deg) brightness(99%) contrast(95%);
 }
 
 .delivery-radio {
