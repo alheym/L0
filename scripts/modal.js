@@ -210,6 +210,24 @@ export function handlerDeliveryModal() {
       }
     })
   })
+
+  const deliveryCart = document.querySelector('.info__delivery-address')
+
+  // получение кнопки "Выбрать" в модальном окне доставки
+  const saveButton = document.querySelector('.modal-save')
+
+  // добавление обработчика на кнопку "Выбрать"
+  if (saveButton) {
+    saveButton.addEventListener('click', () => {
+      const selectedAddress = document.querySelector(
+        '.delivery-radio:checked + .modal-address-info p'
+      )
+      if (selectedAddress) {
+        deliveryCart.textContent = selectedAddress.textContent.trim()
+        document.body.removeChild(overlay)
+      }
+    })
+  }
 }
 
 export function handlerPaymentModal() {
@@ -279,6 +297,34 @@ export function handlerPaymentModal() {
   if (closeButton) {
     closeButton.addEventListener('click', () => {
       document.body.removeChild(overlay)
+    })
+  }
+
+  const paymentCard = document.querySelector('.info__payment-card')
+  const paymentCardText = paymentCard.querySelector('p')
+  const paymentCardImage = paymentCard.querySelector('img')
+  const saveButton = document.querySelector('.modal-save')
+
+  // добавление обработчика на кнопку "Выбрать"
+  if (saveButton) {
+    saveButton.addEventListener('click', () => {
+      const selectedPayment = document.querySelector(
+        '.payment-radio:checked + .modal-payment-info p'
+      )
+      if (selectedPayment) {
+        const paymentInfoContainer = selectedPayment.closest(
+          '.modal-payment-info'
+        )
+
+        const paymentText = selectedPayment.textContent.trim()
+        const paymentImageSrc = paymentInfoContainer
+          .querySelector('img')
+          .getAttribute('src')
+
+        paymentCardText.textContent = paymentText
+        paymentCardImage.setAttribute('src', paymentImageSrc)
+        document.body.removeChild(overlay)
+      }
     })
   }
 }
