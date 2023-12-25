@@ -1,60 +1,60 @@
-import { updateOutStockInfo, updateCartInfo } from "./cartInfo.js";
+import { updateCartInfo, updateOutStockInfo } from './cartInfo.js'
 
 // создание карточек товаров
 export function createCartItemElement(item, inStock = true) {
-  const cartItem = document.createElement("div");
-  cartItem.classList.add("item");
+  const cartItem = document.createElement('div')
+  cartItem.classList.add('item')
   if (!inStock) {
-    cartItem.classList.add("outStock");
+    cartItem.classList.add('outStock')
   }
 
-  let itemDetail = "";
+  let itemDetail = ''
   if (item.details.color) {
-    itemDetail += `<div class="cart__item-color">Цвет: ${item.details.color}</div>`;
+    itemDetail += `<div class="cart__item-color">Цвет: ${item.details.color}</div>`
   }
 
   function updateSizeDisplay(item, itemDetail) {
-    itemDetail = "";
+    itemDetail = ''
 
     // Проверка ширины экрана для отображения элемента с или без текста "Размер"
     if (item.details.size && window.innerWidth < 640) {
-      itemDetail += `<div class="cart__item-size">${item.details.size}</div>`;
+      itemDetail += `<div class="cart__item-size">${item.details.size}</div>`
     } else {
       if (item.details.size) {
-        itemDetail += `<div class="cart__item-size">Размер: ${item.details.size}</div>`;
+        itemDetail += `<div class="cart__item-size">Размер: ${item.details.size}</div>`
       }
     }
-    return itemDetail;
+    return itemDetail
   }
 
-  itemDetail = updateSizeDisplay(item, itemDetail);
+  itemDetail = updateSizeDisplay(item, itemDetail)
 
   // Обновить отображение размера при изменении размера окна
-  window.addEventListener("resize", () => {
-    itemDetail = updateSizeDisplay(item, itemDetail);
+  window.addEventListener('resize', () => {
+    itemDetail = updateSizeDisplay(item, itemDetail)
 
-    const cartItemDetail = cartItem.querySelector(".cart__item-detail");
-    cartItemDetail.innerHTML = itemDetail;
-  });
+    const cartItemDetail = cartItem.querySelector('.cart__item-detail')
+    cartItemDetail.innerHTML = itemDetail
+  })
 
-  let itemRemains = "";
+  let itemRemains = ''
 
   if (item.details.remains) {
-    itemRemains = `<div class="cart__meta-remains">Осталось ${item.details.remains} шт.</div>`;
+    itemRemains = `<div class="cart__meta-remains">Осталось ${item.details.remains} шт.</div>`
   }
 
-  const priceClass = item.price.finalPrice.length > 5 ? "small" : "";
+  const priceClass = item.price.finalPrice.length > 5 ? 'small' : ''
 
-  let noRemainsClass = "";
+  let noRemainsClass = ''
 
   const noDetailClass =
-    item.details.size || item.details.color ? "" : "noDetail";
+    item.details.size || item.details.color ? '' : 'noDetail'
 
   if (inStock) {
-    noRemainsClass = item.details.remains ? "" : "noRemains";
+    noRemainsClass = item.details.remains ? '' : 'noRemains'
   }
 
-  const bigItemClass = item.id === 3 ? "big" : "";
+  const bigItemClass = item.id === 3 ? 'big' : ''
 
   const sellerInfo = item.seller
     ? `<div class="seller-info-text">
@@ -63,35 +63,35 @@ export function createCartItemElement(item, inStock = true) {
     <div class="seller-info-orgn">ОГРН: ${item.seller.orgn}</div>
     <div class="seller-info-address">${item.seller.address}</div>
     </div>`
-    : "";
+    : ''
 
-  let discountPercentage = parseFloat(item.discounts.product);
+  let discountPercentage = parseFloat(item.discounts.product)
 
-  let oldPrice = parseFloat(item.price.oldPrice.replace(/\s/g, ""));
+  let oldPrice = parseFloat(item.price.oldPrice.replace(/\s/g, ''))
 
-  const count = item.count || 1;
+  const count = item.count || 1
   if (count !== 1) {
-    oldPrice /= count;
+    oldPrice /= count
   }
 
-  let discountAmount = Math.round((discountPercentage / 100) * oldPrice);
+  let discountAmount = Math.round((discountPercentage / 100) * oldPrice)
 
-  let discountUser = Math.round(0.1 * oldPrice);
+  let discountUser = Math.round(0.1 * oldPrice)
 
   cartItem.innerHTML = `
-    <div class="cart__item ${bigItemClass} ${inStock ? "" : "outStock"}">
+    <div class="cart__item ${bigItemClass} ${inStock ? '' : 'outStock'}">
       <div class="cart__main">
       ${
         inStock
           ? `<input type="checkbox" data-id="${item.id}" class="itemCheckbox"/>`
-          : ""
+          : ''
       }
         <img src="${item.imgSrc}" alt="" class="cart__main-img ${
-          inStock ? "" : "outStock"
-        }" />
-        <div class="cart__item-info ${priceClass} ${inStock ? "" : "outStock"}">
+    inStock ? '' : 'outStock'
+  }" />
+        <div class="cart__item-info ${priceClass} ${inStock ? '' : 'outStock'}">
           <p class="cart__item-title ${
-            inStock ? "" : "outStock"
+            inStock ? '' : 'outStock'
           } ${bigItemClass}">${item.title}</p>
           <div class="cart__item-detail">
             ${itemDetail}
@@ -109,11 +109,11 @@ export function createCartItemElement(item, inStock = true) {
               </div>       
               </div>
               `
-              : ""
+              : ''
           }
         </div>
       </div>
-      <div class="cart__meta ${inStock ? "" : "outStock"}">
+      <div class="cart__meta ${inStock ? '' : 'outStock'}">
         <div class="cart__meta-controls">
         ${
           inStock
@@ -125,7 +125,7 @@ export function createCartItemElement(item, inStock = true) {
                   type="number"
                   value="${item.count}"
                   min="1"
-                  ${item.details.remains ? `max="${item.details.remains}"` : ""}
+                  ${item.details.remains ? `max="${item.details.remains}"` : ''}
                   maxlength="3"
                   class="cart__meta-counter-input"
                 />
@@ -133,13 +133,13 @@ export function createCartItemElement(item, inStock = true) {
                   +
                 </button>
               </div>`
-            : ""
+            : ''
         }
         ${
           inStock
             ? `
             <div class="cart__meta-remains">${itemRemains}</div>`
-            : ""
+            : ''
         }
           <div class="cart__meta-button ${noRemainsClass} ${bigItemClass}">
             <button class="cart__meta-button-favorite" title="В избранное">
@@ -171,28 +171,43 @@ export function createCartItemElement(item, inStock = true) {
             </div>
             </div>
           `
-              : ""
+              : ''
           }
         </div>
       </div>
     </div>
-  `;
+  `
 
   // добавление/удаление элементов
-  const favoriteButton = cartItem.querySelector(".cart__meta-button-favorite");
-  const deleteButton = cartItem.querySelector(".cart__meta-button-delete");
+  const favoriteButton = cartItem.querySelector('.cart__meta-button-favorite')
+  const deleteButton = cartItem.querySelector('.cart__meta-button-delete')
+  const countLabel = document.querySelector('.header__nav-cart-label')
 
-  favoriteButton.addEventListener("click", () => {
-    favoriteButton.classList.toggle("active");
-  });
+  favoriteButton.addEventListener('click', () => {
+    favoriteButton.classList.toggle('active')
+  })
 
-  deleteButton.addEventListener("click", () => {
-    cartItem.remove();
-    const deliveryElements = document.querySelectorAll(`.id-${item.id}`);
-    deliveryElements.forEach((element) => element.remove());
-    updateCartInfo();
-    updateOutStockInfo();
-  });
+  deleteButton.addEventListener('click', () => {
+    cartItem.remove()
+    const deliveryElements = document.querySelectorAll(`.id-${item.id}`)
+    deliveryElements.forEach((element) => element.remove())
 
-  return cartItem;
+    updateCartInfo()
+    updateOutStockInfo()
+
+    // изменение счетчика
+    if (countLabel) {
+      let currentCount = parseInt(countLabel.textContent)
+      if (!isNaN(currentCount) && currentCount > 0) {
+        currentCount -= 1
+        countLabel.textContent = currentCount.toString()
+      }
+
+      if (currentCount === 0) {
+        countLabel.remove()
+      }
+    }
+  })
+
+  return cartItem
 }

@@ -1,222 +1,96 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./assets/icons/favicon.ico " type="image/x-icon" />
-    <link rel="stylesheet" href="./global-styles.css" />
-    <link rel="stylesheet" href="./styles.css" />
-    <title>Товары и точка</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="header__logo">
-        <div class="header__burger"></div>
-        <h1 class="header__title">ТОВАРЫ И ТОЧКА</h1>
-      </div>
-      <form action="#" class="header__search">
-        <input
-          type="search"
-          name="search"
-          id="search"
-          class="header__search-input"
-          placeholder="Я ищу..."
-        />
-        <button type="submit" class="header__search-button">
-          <img src="./assets/icons/Search.svg" alt="search" />
-        </button>
-      </form>
-      <nav class="header__nav">
-        <ul>
-          <li>
-            <a href="#">
-              <img
-                class="header__nav-profile"
-                src="./assets/icons/profile.svg"
-              />
-              Профиль
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img class="header__nav-cart" src="./assets/icons/cart.svg" />
-              Корзина</a
-            >
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main class="main">
-      <section class="cart">
-        <div class="cart__menu">
-          <h2 class="cart__menu-title">Корзина</h2>
-          <div class="cart__menu-info">
-            <div class="cart__menu-checkbox">
-              <input type="checkbox" id="selectAllCheckbox" />
-              <p class="cart__menu-checkbox-text">Выбрать все</p>
-            </div>
-            <div class="cart__menu-checkbox-info"></div>
-            <div class="cart__menu-arrow">
-              <img src="./assets/icons/arrow.svg" alt="arrow" />
-            </div>
-          </div>
-        </div>
-        <div class="cart__list-inStock"></div>
-        <div class="cart__outStock">
-          <div class="cart__menu-info">
-            <h3 class="cart__outStock-title">Отсутствуют · 3 товара</h3>
-            <div class="cart__menu-arrow outStock-arrow">
-              <img src="./assets/icons/arrow.svg" alt="arrow" />
-            </div>
-          </div>
-          <div class="cart__list-outStock"></div>
-        </div>
-        <div class="block delivery">
-          <div class="block__header">
-            <h2 class="block__header-title">Способ доставки</h2>
-            <button class="block__header-change delivery-address-change">
-              Изменить
-            </button>
-          </div>
-          <div class="delivery__address">
-            <div class="delivery__title">Пункт выдачи</div>
-            <div class="delivery__content">
-              <div class="delivery__address-content-title">
-                Бишкек, улица Ахматбека Суюмбаева, 12/1
-              </div>
-              <div class="delivery__address-content-time">
-                <img src="./assets/icons/star.svg" alt="star" />
-                <span>4.99</span>
-                Ежедневно с 10 до 21
-              </div>
-            </div>
-          </div>
-          <div class="delivery__price">
-            <div class="delivery__title">Стоимость доставки</div>
-            <div class="delivery__content">Бесплатно</div>
-          </div>
-          <div class="delivery__time"></div>
-          <div class="delivery__descr">
-            <img src="./assets/icons/price.svg" alt="price" />
-            <div>
-              Обратная доставка товаров на склад при отказе —
-              <span class="free-info">бесплатно </span>
-              <div class="free-info-text">
-                Если товары вам не подойдут, мы вернем их обратно на склад — это
-                бесплатно
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="block payment">
-          <div class="block__header">
-            <h2 class="block__header-title">Способ оплаты</h2>
-            <button class="block__header-change payment-change">
-              Изменить
-            </button>
-          </div>
-          <div class="payment__content">
-            <div class="payment__content-img">
-              <img src="./assets/icons/mir.svg" alt="mir" />
-            </div>
-            <p>1234 56•• •••• 1234 <span>01/30</span></p>
-          </div>
-          <div class="payment__descr">Спишем оплату с карты при получении</div>
-        </div>
-        <div class="block recepient">
-          <div class="block__header">
-            <h2 class="block__header-title">Получатель</h2>
-          </div>
-          <form action="#" class="recipient__form" id="recepient-data">
-            <div class="recipient__block">
-              <div class="input__block">
-                <label for="name"></label>
-                <input type="text" placeholder="Имя" id="name" required />
-                <span class="input__block-warning"></span>
-              </div>
-              <div class="input__block">
-                <label for="surname"></label>
-                <input
-                  type="text"
-                  placeholder="Фамилия"
-                  id="surname"
-                  required
-                />
-                <span class="input__block-warning"></span>
-              </div>
-            </div>
-            <div class="recipient__block">
-              <div class="input__block">
-                <label for="email"></label>
-                <input type="email" placeholder="Почта" id="email" required />
-                <span class="input__block-warning"></span>
-              </div>
-              <div class="input__block">
-                <label for="tel"></label>
-                <input
-                  type="tel"
-                  placeholder="Телефон"
-                  maxlength="30"
-                  id="tel"
-                  required
-                />
-                <span class="input__block-warning"></span>
-              </div>
-              <div class="input__block">
-                <label for="inn"></label>
-                <input type="number" placeholder="ИНН" id="inn" required />
-                <span class="input__block-warning"></span>
-                <p class="input__block-description">
-                  Для таможенного оформления
-                </p>
-              </div>
-            </div>
-          </form>
-        </div>
-      </section>
-      <section class="cart__info">
-        <div class="block__header info">
-          <h2 class="block__header-title">Итого</h2>
-          <div class="info__price-block">
-            <div class="info__price" id="totalPrice">0</div>
-            <div class="info__price-currency">сом</div>
-          </div>
-        </div>
-        <div class="info__price-content">
-          <div class="info__block count">
-            <div class="info__block-title count-title" id="totalCount">
-              0 товаров
-            </div>
-            <div class="info__block-descr count-price" id="totalPriceOld">
-              0 <span>сом</span>
-            </div>
-          </div>
-          <div class="info__block discount">
-            <div class="info__block-title">Скидка</div>
 
-            <div class="info__block-descr" id="totalDiscount">
-              0 <span>сом</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/icons/favicon.ico " type="image/x-icon" />
+  <link rel="stylesheet" href="./global-styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Товары и точка</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <div class="header__burger"></div>
+      <h1 class="header__title">ТОВАРЫ И ТОЧКА</h1>
+    </div>
+    <form action="#" class="header__search">
+      <input type="search" name="search" id="search" class="header__search-input" placeholder="Я ищу..." />
+      <button type="submit" class="header__search-button">
+        <img src="./assets/icons/Search.svg" alt="search" />
+      </button>
+    </form>
+    <nav class="header__nav">
+      <ul>
+        <li>
+          <a href="#">
+            <img class="header__nav-profile" src="./assets/icons/profile.svg" />
+            Профиль
+          </a>
+        </li>
+        <li class="header__nav-cart">
+          <a href="#">
+            <img class="header__nav-cart-img" src="./assets/icons/cart.svg" />
+            Корзина</a>
+          <div class="header__nav-cart-label">3</div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+    <section class="cart">
+      <div class="cart__menu">
+        <h2 class="cart__menu-title">Корзина</h2>
+        <div class="cart__menu-info">
+          <div class="cart__menu-checkbox">
+            <input type="checkbox" id="selectAllCheckbox" />
+            <p class="cart__menu-checkbox-text">Выбрать все</p>
+          </div>
+          <div class="cart__menu-checkbox-info"></div>
+          <div class="cart__menu-arrow">
+            <img src="./assets/icons/arrow.svg" alt="arrow" />
+          </div>
+        </div>
+      </div>
+      <div class="cart__list-inStock"></div>
+      <div class="cart__outStock">
+        <div class="cart__menu-info">
+          <h3 class="cart__outStock-title">Отсутствуют · 3 товара</h3>
+          <div class="cart__menu-arrow outStock-arrow">
+            <img src="./assets/icons/arrow.svg" alt="arrow" />
+          </div>
+        </div>
+        <div class="cart__list-outStock"></div>
+      </div>
+      <div class="block delivery">
+        <div class="block__header">
+          <h2 class="block__header-title">Способ доставки</h2>
+          <button class="block__header-change delivery-address-change">
+            Изменить
+          </button>
+        </div>
+        <div class="delivery__address">
+          <div class="delivery__title">Пункт выдачи</div>
+          <div class="delivery__content">
+            <div class="delivery__address-content-title">
+              Бишкек, улица Ахматбека Суюмбаева, 12/1
+            </div>
+            <div class="delivery__address-content-time">
+              <img src="./assets/icons/star.svg" alt="star" />
+              <span>4.99</span>
+              Ежедневно с 10 до 21
             </div>
           </div>
-          <div class="info__block delivery">
-            <div class="info__block-title">Доставка</div>
-            <div class="info__block-descr">Бесплатно</div>
-          </div>
         </div>
-        <div class="info__delivery">
-          <div class="block__header delivery-content">
-            <h4 class="block__header-subtitle">Доставка в пункт выдачи</h4>
-            <button
-              class="block__header-change pen delivery-address-change"
-            ></button>
-          </div>
-          <div class="info__delivery-address">
-            Бишкек, улица Ахматбека Суюмбаева, 12/1
-          </div>
-          <div class="info__delivery-date">5–8 фев</div>
+        <div class="delivery__price">
+          <div class="delivery__title">Стоимость доставки</div>
+          <div class="delivery__content">Бесплатно</div>
         </div>
-        <div class="info__delivery-info">
-          <img src="./assets/icons/price.svg" alt="" />
+        <div class="delivery__time"></div>
+        <div class="delivery__descr">
+          <img src="./assets/icons/price.svg" alt="price" />
           <div>
             Обратная доставка товаров на склад при отказе —
             <span class="free-info">бесплатно </span>
@@ -226,45 +100,162 @@
             </div>
           </div>
         </div>
-        <div class="info__payment">
-          <div class="block__header payment-content">
-            <h4 class="block__header-subtitle">Оплата картой</h4>
-            <button class="block__header-change pen payment-change"></button>
-          </div>
-          <div class="info__payment-card">
+      </div>
+      <div class="block payment">
+        <div class="block__header">
+          <h2 class="block__header-title">Способ оплаты</h2>
+          <button class="block__header-change payment-change">
+            Изменить
+          </button>
+        </div>
+        <div class="payment__content">
+          <div class="payment__content-img">
             <img src="./assets/icons/mir.svg" alt="mir" />
-            <p>1234 12•• •••• 1234</p>
           </div>
+          <p>1234 56•• •••• 1234 <span>01/30</span></p>
         </div>
-        <div class="info__payment-check">
-          <div class="info__payment-check-input">
-            <input type="checkbox" id="paymentCheckbox" /> Списать оплату сразу
-          </div>
-          <p id="paymentText">Спишем оплату с карты при получении</p>
+        <div class="payment__descr">Спишем оплату с карты при получении</div>
+      </div>
+      <div class="block recepient">
+        <div class="block__header">
+          <h2 class="block__header-title">Получатель</h2>
         </div>
-        <div class="info__submit">
-          <button class="info__submit-button">Заказать</button>
-          <div class="info__submit-descr">
-            <img src="./assets/icons/check.svg" alt="check" />
-            <div class="info__submit-descr-text">
-              Соглашаюсь <span>с правилами пользования торговой</span>
-              <span>площадкой</span> и 
-              <span>возврата</span>
+        <form action="#" class="recipient__form" id="recepient-data">
+          <div class="recipient__block">
+            <div class="input__block">
+              <label for="name"></label>
+              <input type="text" placeholder="Имя" id="name" required />
+              <span class="input__block-warning"></span>
+            </div>
+            <div class="input__block">
+              <label for="surname"></label>
+              <input type="text" placeholder="Фамилия" id="surname" required />
+              <span class="input__block-warning"></span>
             </div>
           </div>
+          <div class="recipient__block">
+            <div class="input__block">
+              <label for="email"></label>
+              <input type="email" placeholder="Почта" id="email" required />
+              <span class="input__block-warning"></span>
+            </div>
+            <div class="input__block">
+              <label for="tel"></label>
+              <input type="tel" placeholder="Телефон" maxlength="30" id="tel" required />
+              <span class="input__block-warning"></span>
+            </div>
+            <div class="input__block">
+              <label for="inn"></label>
+              <input type="number" placeholder="ИНН" id="inn" required />
+              <span class="input__block-warning"></span>
+              <p class="input__block-description">
+                Для таможенного оформления
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section class="cart__info">
+      <div class="block__header info">
+        <h2 class="block__header-title">Итого</h2>
+        <div class="info__price-block">
+          <div class="info__price" id="totalPrice">0</div>
+          <div class="info__price-currency">сом</div>
         </div>
-      </section>
-    </main>
-    <footer class="footer"><span>© 2022</span> ООО «Товары и точка»</footer>
-    <nav class="mobile-nav">
-      <ul>
-        <li><div class="home-icon"></div></li>
-        <li><div class="search-icon"></div></li>
-        <li><div class="cart-icon"></div></li>
-        <li><div class="favorites-icon"></div></li>
-        <li><div class="profile-icon"></div></li>
-      </ul>
-    </nav>
-    <script type="module" src="./scripts/script.js"></script>
-  </body>
+      </div>
+      <div class="info__price-content">
+        <div class="info__block count">
+          <div class="info__block-title count-title" id="totalCount">
+            0 товаров
+          </div>
+          <div class="info__block-descr count-price" id="totalPriceOld">
+            0 <span>сом</span>
+          </div>
+        </div>
+        <div class="info__block discount">
+          <div class="info__block-title">Скидка</div>
+
+          <div class="info__block-descr" id="totalDiscount">
+            0 <span>сом</span>
+          </div>
+        </div>
+        <div class="info__block delivery">
+          <div class="info__block-title">Доставка</div>
+          <div class="info__block-descr">Бесплатно</div>
+        </div>
+      </div>
+      <div class="info__delivery">
+        <div class="block__header delivery-content">
+          <h4 class="block__header-subtitle">Доставка в пункт выдачи</h4>
+          <button class="block__header-change pen delivery-address-change"></button>
+        </div>
+        <div class="info__delivery-address">
+          Бишкек, улица Ахматбека Суюмбаева, 12/1
+        </div>
+        <div class="info__delivery-date">5–8 фев</div>
+      </div>
+      <div class="info__delivery-info">
+        <img src="./assets/icons/price.svg" alt="" />
+        <div>
+          Обратная доставка товаров на склад при отказе —
+          <span class="free-info">бесплатно </span>
+          <div class="free-info-text">
+            Если товары вам не подойдут, мы вернем их обратно на склад — это
+            бесплатно
+          </div>
+        </div>
+      </div>
+      <div class="info__payment">
+        <div class="block__header payment-content">
+          <h4 class="block__header-subtitle">Оплата картой</h4>
+          <button class="block__header-change pen payment-change"></button>
+        </div>
+        <div class="info__payment-card">
+          <img src="./assets/icons/mir.svg" alt="mir" />
+          <p>1234 12•• •••• 1234</p>
+        </div>
+      </div>
+      <div class="info__payment-check">
+        <div class="info__payment-check-input">
+          <input type="checkbox" id="paymentCheckbox" /> Списать оплату сразу
+        </div>
+        <p id="paymentText">Спишем оплату с карты при получении</p>
+      </div>
+      <div class="info__submit">
+        <button class="info__submit-button">Заказать</button>
+        <div class="info__submit-descr">
+          <img src="./assets/icons/check.svg" alt="check" />
+          <div class="info__submit-descr-text">
+            Соглашаюсь <span>с правилами пользования торговой</span>
+            <span>площадкой</span> и 
+            <span>возврата</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><span>© 2022</span> ООО «Товары и точка»</footer>
+  <nav class="mobile-nav">
+    <ul>
+      <li>
+        <div class="home-icon"></div>
+      </li>
+      <li>
+        <div class="search-icon"></div>
+      </li>
+      <li>
+        <div class="cart-icon"></div>
+      </li>
+      <li>
+        <div class="favorites-icon"></div>
+      </li>
+      <li>
+        <div class="profile-icon"></div>
+      </li>
+    </ul>
+  </nav>
+  <script type="module" src="./scripts/script.js"></script>
+</body>
+
 </html>
