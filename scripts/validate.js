@@ -39,6 +39,9 @@ export function inputValidator() {
       inputElement.addEventListener('input', () => {
         let inputValue = inputElement.value.replace(/\s/g, '')
 
+        // удаление всех символов, кроме цифр
+        inputValue = inputValue.replace(/\D/g, '')
+
         // форматируем номер телефона с пробелами
         inputValue = inputValue
           .replace(/^\+?(\d{1})/, '+$1') // добавляем "+"
@@ -51,6 +54,20 @@ export function inputValidator() {
 
         // устанавливаем отформатированное значение
         inputElement.value = inputValue
+      })
+    }
+
+    // обработка ИНН
+    if (inputElement.id === 'inn') {
+      inputElement.addEventListener('input', (event) => {
+        let inputValue = event.target.value.replace(/\D/g, '') // Удаление всех символов, кроме цифр
+
+        // Ограничение до 14 символов
+        if (inputValue.length > 14) {
+          inputValue = inputValue.slice(0, 14)
+        }
+
+        event.target.value = inputValue // Установка отформатированного значения
       })
     }
   }
